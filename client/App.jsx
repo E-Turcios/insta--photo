@@ -1,9 +1,9 @@
-import React from 'react'
-import Routes from './Routes'
+import React, { Fragment } from 'react';
+import Routes from './Routes';
 export default function App() {
   return (
-    <React.Fragment>
+    <Fragment>
       <Routes />
-    </React.Fragment>
-  )
+    </Fragment>
+  );
 }
