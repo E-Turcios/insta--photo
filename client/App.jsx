@@ -1,9 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Routes from './Routes';
+import { ChakraProvider } from '@chakra-ui/react';
+
 export default function App() {
   return (
-    <Fragment>
+    <ChakraProvider>
       <Routes />
-    </Fragment>
+    </ChakraProvider>
   );
 }
