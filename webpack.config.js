@@ -3,15 +3,17 @@
 const { resolve } = require('path');
 
 module.exports = {
-  entry: './client/app.js',
+  entry: './client/main.js',
   output: {
     filename: 'bundle.js',
     path: resolve(__dirname, 'public'),
+    publicPath: '/',
   },
   devServer: {
     port: 8080,
     open: true,
     hot: true,
+    historyApiFallback: true,
   },
   mode: 'development',
   context: __dirname,
