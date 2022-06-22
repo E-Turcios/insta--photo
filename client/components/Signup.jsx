@@ -61,6 +61,10 @@ export default function Signup() {
           </InputRightElement>
         </InputGroup>
       </FormControl>
+
+      <Button h="1.75rem" size="sm" onClick={Event => handleLogin(Event)}>
+        Sign Up
+      </Button>
     </>
   );
 }
