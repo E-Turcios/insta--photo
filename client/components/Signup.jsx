@@ -15,6 +15,9 @@ import {
 export default function Signup() {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
+  function handleLogin(event) {
+    event.preventDefault();
+  }
   return (
     <>
       <FormControl>
@@ -48,7 +51,6 @@ export default function Signup() {
             </Button>
           </InputRightElement>
         </InputGroup>
-
       </FormControl>
       <FormControl>
         <FormLabel>Confirm Password</FormLabel>
