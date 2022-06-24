@@ -1,6 +1,6 @@
 import React from 'react';
 import SinglePost from './SinglePost';
-
+import { Stack } from '@chakra-ui/react';
 const post = {
   avatar:
     'https://cdn.britannica.com/34/180334-138-4235A017/subordinate-meerkat-pack.jpg?w=800&h=450&c=crop',
@@ -13,14 +13,16 @@ const post = {
 };
 export default function Home() {
   return (
-    <SinglePost
-      avatar={post.avatar}
-      username={post.username}
-      imageUrl={post.imageUrl}
-      description={post.description}
-      likes={post.likes}
-      comments={post.comments}
-      timestamp={post.timestamp}
-    />
+    <Stack align="center">
+      <SinglePost
+        avatar={post.avatar}
+        username={post.username}
+        imageUrl={post.imageUrl}
+        description={post.description}
+        likes={post.likes}
+        comments={post.comments}
+        timestamp={post.timestamp}
+      />
+    </Stack>
   );
 }
