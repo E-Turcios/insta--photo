@@ -29,7 +29,7 @@ export default function SinglePost(props) {
       </HStack>
       <Image src={imageUrl} maxH="600px" />
       <HStack>Likes, comments, Share</HStack>
-      <VStack align="left" pl="5%">
+      <VStack align="left" pl="15px">
         <Text>{likes} likes</Text>
         <Text>
           <Link color="teal.500" href="#">
