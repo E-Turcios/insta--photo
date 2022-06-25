@@ -1,6 +1,7 @@
 'use strict';
 
 const { resolve } = require('path');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './client/main.js',
@@ -32,4 +33,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new Dotenv({
+      path: './.env.development.local',
+    }),
+  ],
 };
