@@ -12,17 +12,26 @@ import {
   InputGroup,
 } from '@chakra-ui/react';
 
+import { useAuth } from '../context/AuthContext';
+
 export default function Login() {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
   const emailRef = useRef();
   const passwordRef = useRef();
-  const handleLogin = event => {
+  const { login, currentUser } = useAuth();
+
+  const handleLogin = async event => {
     event.preventDefault();
-    console.log(emailRef.current.value);
+    try {
+      await login(emailRef, passwordRef);
+    } catch (error) {}
   };
+
   return (
     <Stack width="25%">
+      {currentUser ? <h1>{currentUser.accessToken}</h1> : <></>}
+
       <FormControl>
         <FormLabel>Email</FormLabel>
         <Input

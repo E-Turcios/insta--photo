@@ -1,7 +1,8 @@
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+import { getAuth } from 'firebase/auth';
 
-const app = {
+const firebaseConfig = {
   apiKey: process.env.API_KEY,
   authDomain: process.env.AUTH_DOMAIN,
   projectId: process.env.PROJECT_ID,
@@ -11,5 +12,7 @@ const app = {
   measurementId: process.env.MEASUREMENT_ID,
 };
 
-export const auth = app.auth();
-export default app;
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+export { auth };
