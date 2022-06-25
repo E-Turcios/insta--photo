@@ -20,7 +20,7 @@ export default function SinglePost(props) {
     timestamp,
   } = props;
   return (
-    <Stack maxW="500" shadow="md">
+    <Stack maxW="500" shadow="2xl" border='1px' borderColor='gray.200' borderRadius='10px'>
       <HStack>
         <Avatar name={username} src={avatar} margin=".5rem" />
         <Link color="teal.500" href="#">
