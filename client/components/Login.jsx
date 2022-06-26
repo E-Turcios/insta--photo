@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import {
   FormControl,
@@ -18,7 +18,7 @@ import {
 } from '@chakra-ui/react';
 
 import { useAuth } from '../context/AuthContext';
-
+import { Link as RouterLink } from 'react-router-dom';
 export default function Login() {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
@@ -41,11 +41,18 @@ export default function Login() {
       w="100%"
       h="100vh"
     >
-      <Stack w="348px" h="374px" border="1px" borderColor="gray.200" spacing='24px'>
-        <Heading as="h4" size="lg" align="center" p="10px" >
+      <Stack
+        w="348px"
+        h="374px"
+        border="1px"
+        borderColor="gray.200"
+        spacing="24px"
+        p="20px"
+      >
+        <Heading as="h4" size="lg" align="center" p="10px">
           InstaPhoto
         </Heading>
-        <FormControl>
+        <FormControl shadow="md">
           <Input
             type="email"
             id="email"
@@ -53,7 +60,7 @@ export default function Login() {
             ref={emailRef}
           ></Input>
         </FormControl>
-        <FormControl>
+        <FormControl shadow="md">
           <InputGroup>
             <Input
               type={show ? 'text' : 'password'}
@@ -62,27 +69,42 @@ export default function Login() {
               ref={passwordRef}
             />
             <InputRightElement width="4.5rem">
-              <Button h="1.75rem" size="sm" onClick={handleClick}>
+              <Button
+                h="1.75rem"
+                size="sm"
+                onClick={handleClick}
+                variant="ghost"
+              >
                 {show ? 'Hide' : 'Show'}
               </Button>
             </InputRightElement>
           </InputGroup>
         </FormControl>
         <Button
-          h="1.75rem"
+          h="2.75rem"
           size="sm"
           onClick={Event => handleLogin(Event)}
           color="white"
           backgroundColor="#0095f6"
+          shadow="md"
         >
           Login
         </Button>
       </Stack>
-      <HStack w="350px" h="63px" border="1px" borderColor="gray.200" justify="center" >
-        <Text>Don't have an account?
-        <Link color="#0095f6"> Sign up</Link>
+      <HStack
+        w="350px"
+        h="63px"
+        border="1px"
+        borderColor="gray.200"
+        justify="center"
+      >
+        <Text>
+          Don't have an account?
+          <Link as={RouterLink} to="/signup" color="#0095f6">
+            {' '}
+            Sign up
+          </Link>
         </Text>
-        
       </HStack>
     </Stack>
   );
