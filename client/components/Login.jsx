@@ -11,6 +11,10 @@ import {
   Button,
   InputGroup,
   Box,
+  Heading,
+  Text,
+  Link,
+  HStack,
 } from '@chakra-ui/react';
 
 import { useAuth } from '../context/AuthContext';
@@ -37,23 +41,24 @@ export default function Login() {
       w="100%"
       h="100vh"
     >
-      <Stack w="348px" h="374px" border="1px" borderColor="gray.200">
+      <Stack w="348px" h="374px" border="1px" borderColor="gray.200" spacing='24px'>
+        <Heading as="h4" size="lg" align="center" p="10px" >
+          InstaPhoto
+        </Heading>
         <FormControl>
-          <FormLabel>Email</FormLabel>
           <Input
             type="email"
             id="email"
-            placeholder="johndoe@gmail.com"
+            placeholder="Phone number, username, or email"
             ref={emailRef}
           ></Input>
         </FormControl>
         <FormControl>
-          <FormLabel>Password</FormLabel>
           <InputGroup>
             <Input
               type={show ? 'text' : 'password'}
               id="password"
-              placeholder="johndoe@gmail.com"
+              placeholder="Password"
               ref={passwordRef}
             />
             <InputRightElement width="4.5rem">
@@ -63,10 +68,22 @@ export default function Login() {
             </InputRightElement>
           </InputGroup>
         </FormControl>
-        <Button h="1.75rem" size="sm" onClick={Event => handleLogin(Event)}>
+        <Button
+          h="1.75rem"
+          size="sm"
+          onClick={Event => handleLogin(Event)}
+          color="white"
+          backgroundColor="#0095f6"
+        >
           Login
         </Button>
       </Stack>
+      <HStack w="350px" h="63px" border="1px" borderColor="gray.200" justify="center" >
+        <Text>Don't have an account?
+        <Link color="#0095f6"> Sign up</Link>
+        </Text>
+        
+      </HStack>
     </Stack>
   );
 }
