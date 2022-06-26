@@ -32,7 +32,7 @@ export default function Signup() {
     <Stack>
       <FormControl>
         <FormLabel> First Name</FormLabel>
-        <Input id="firstname" type="text" />
+        <Input id="firstname " type="text" />
       </FormControl>
 
       <FormControl>
