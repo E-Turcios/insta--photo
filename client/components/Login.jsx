@@ -10,6 +10,7 @@ import {
   InputRightElement,
   Button,
   InputGroup,
+  Box,
 } from '@chakra-ui/react';
 
 import { useAuth } from '../context/AuthContext';
@@ -29,37 +30,43 @@ export default function Login() {
   };
 
   return (
-    <Stack width="25%">
-      {currentUser ? <h1>{currentUser.accessToken}</h1> : <></>}
-
-      <FormControl>
-        <FormLabel>Email</FormLabel>
-        <Input
-          type="email"
-          id="email"
-          placeholder="johndoe@gmail.com"
-          ref={emailRef}
-        ></Input>
-      </FormControl>
-      <FormControl>
-        <FormLabel>Password</FormLabel>
-        <InputGroup>
+    <Stack
+      position="absolute"
+      justify="center"
+      align="center"
+      w="100%"
+      h="100vh"
+    >
+      <Stack w="348px" h="374px" border="1px" borderColor="gray.200">
+        <FormControl>
+          <FormLabel>Email</FormLabel>
           <Input
-            type={show ? 'text' : 'password'}
-            id="password"
+            type="email"
+            id="email"
             placeholder="johndoe@gmail.com"
-            ref={passwordRef}
-          />
-          <InputRightElement width="4.5rem">
-            <Button h="1.75rem" size="sm" onClick={handleClick}>
-              {show ? 'Hide' : 'Show'}
-            </Button>
-          </InputRightElement>
-        </InputGroup>
-      </FormControl>
-      <Button h="1.75rem" size="sm" onClick={Event => handleLogin(Event)}>
-        Login
-      </Button>
+            ref={emailRef}
+          ></Input>
+        </FormControl>
+        <FormControl>
+          <FormLabel>Password</FormLabel>
+          <InputGroup>
+            <Input
+              type={show ? 'text' : 'password'}
+              id="password"
+              placeholder="johndoe@gmail.com"
+              ref={passwordRef}
+            />
+            <InputRightElement width="4.5rem">
+              <Button h="1.75rem" size="sm" onClick={handleClick}>
+                {show ? 'Hide' : 'Show'}
+              </Button>
+            </InputRightElement>
+          </InputGroup>
+        </FormControl>
+        <Button h="1.75rem" size="sm" onClick={Event => handleLogin(Event)}>
+          Login
+        </Button>
+      </Stack>
     </Stack>
   );
 }
