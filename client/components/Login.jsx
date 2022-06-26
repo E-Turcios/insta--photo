@@ -32,15 +32,8 @@ export default function Login() {
       await login(emailRef, passwordRef);
     } catch (error) {}
   };
-
   return (
-    <Stack
-      position="absolute"
-      justify="center"
-      align="center"
-      w="100%"
-      h="100vh"
-    >
+    <Stack w="100%" h="100vh" alignItems="center" justify="center">
       <Stack
         w="348px"
         h="374px"
