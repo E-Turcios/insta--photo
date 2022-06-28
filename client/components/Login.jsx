@@ -43,7 +43,7 @@ export default function Login() {
         p="20px"
       >
         <Heading as="h4" size="lg" align="center" p="10px">
-          InstaPhoto
+          Insta Photo
         </Heading>
         <FormControl shadow="md">
           <Input
