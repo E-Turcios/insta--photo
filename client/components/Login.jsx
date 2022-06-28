@@ -15,7 +15,7 @@ import {
   Text,
   Link,
   HStack,
-  useBoolean
+  useBoolean,
 } from '@chakra-ui/react';
 
 import { useAuth } from '../context/AuthContext';
@@ -26,7 +26,6 @@ export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const { login, currentUser } = useAuth();
-  
 
   const handleLogin = async event => {
     event.preventDefault();
@@ -34,7 +33,6 @@ export default function Login() {
       await login(emailRef, passwordRef);
     } catch (error) {}
   };
-
 
   return (
     <Stack w="100%" h="100vh" alignItems="center" justify="center">
@@ -66,7 +64,7 @@ export default function Login() {
               ref={passwordRef}
             />
             <InputRightElement width="4.5rem">
-              <ShowHideButton/>
+              <ShowHideButton />
             </InputRightElement>
           </InputGroup>
         </FormControl>
@@ -101,17 +99,23 @@ export default function Login() {
 }
 
 function ShowHideButton() {
-  const {hasPassword, setHasPassword} = useBoolean(false);
+  const { hasPassword, setHasPassword } = useState(true);
+  const [show, setShow] = useBoolean(false);
   function handlePasswordInput(event) {
     event.preventDefault();
-    setHasPassword(event.target.value.length)
+    setHasPassword(event.target.value.length);
   }
-  return  hasPassword ? <Button
-    h="1.75rem"
-    size="sm"
-    onClick={handlePasswordInput}
-    variant="ghost"
-  >
-    {show ? 'Hide' : 'Show'}
-  </Button> : <></>
+  return hasPassword ? (
+    <Button
+      h="1.75rem"
+      size="sm"
+      onClick={() => setShow.toggle()}
+      onInput={event => handlePasswordInput(event)}
+      variant="ghost"
+    >
+      {show ? 'Hide' : 'Show'}
+    </Button>
+  ) : (
+    <></>
+  );
 }
