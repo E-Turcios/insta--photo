@@ -13,11 +13,12 @@ import {
   Link,
   HStack,
 } from '@chakra-ui/react';
+import Division from './Division';
 
 import { useAuth } from '../context/AuthContext';
 import { Link as RouterLink } from 'react-router-dom';
 
-import InputPassword from './InputPassword'
+import InputPassword from './InputPassword';
 
 export default function Login() {
   const [show, setShow] = useState(false);
@@ -30,14 +31,19 @@ export default function Login() {
     event.preventDefault();
     try {
       await login(emailRef, passwordRef);
-    } catch (error) {}
+    } catch (error) {
+      showError(error.message.replace('Firebase: ', ''));
+    }
   };
 
+  function showError(errorMsg) {
+    errorToast.closeAll();
+    errorToast({ description: errorMsg, status: 'error', position: 'top' });
+  }
   return (
     <Stack w="100%" h="100vh" alignItems="center" justify="center">
       <Stack
         w="348px"
-        h="374px"
         border="1px"
         borderColor="gray.200"
         spacing="24px"
@@ -64,6 +70,10 @@ export default function Login() {
           shadow="md"
         >
           Login
+        </Button>
+        <Division>OR</Division>
+        <Button h="2.75rem" size="md" colorScheme="facebook" shadow="md">
+          Login in with Facebook
         </Button>
       </Stack>
       <HStack
