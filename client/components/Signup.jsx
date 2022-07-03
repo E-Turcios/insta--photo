@@ -10,8 +10,12 @@ import {
   InputRightElement,
   Button,
   InputGroup,
+  Text,
+  Heading,
+  HStack,
+  Link,
 } from '@chakra-ui/react';
-
+import { Link as RouterLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 export default function Signup() {
   const [show, setShow] = useState(false);
@@ -29,33 +33,47 @@ export default function Signup() {
   }
 
   return (
-    <Stack>
+    <Stack w="100%" h="100vh" alignItems="center" justify="center">
+      <Stack
+        w="350px"
+        h="620px"
+        border="1px"
+        borderColor="gray.200"
+        spacing="24px"
+        p="20px" 
+        >
+        <Heading as="h4" size="lg" align="center" >
+          Insta Photo
+        </Heading>
+        <Text color="gray" align="center" fontSize='md'>  
+           Sign up to see photos and videos from your friends
+        </Text>
+        <Button
+          h="2.75rem"
+          size="md"
+          colorScheme="facebook"
+          shadow="md"
+        >
+          Login in with Facebook
+        </Button>
+
       <FormControl>
-        <FormLabel> First Name</FormLabel>
-        <Input id="firstname " type="text" />
+        <Input type="email" id="email" placeholder="Mobile Number or Email"
+            ref={emailRef}/>
       </FormControl>
 
       <FormControl>
-        <FormLabel>Middle Name</FormLabel>
-        <Input id="middlename" type="text" />
-        <FormHelperText>Optional</FormHelperText>
+        <Input id="fullname" type="text" placeholder="Full Name"/>
       </FormControl>
 
       <FormControl>
-        <FormLabel> Last Name</FormLabel>
-        <Input id="lastname" type="text" />
+        <Input id="username" type="text" placeholder="Username" />
       </FormControl>
 
       <FormControl>
-        <FormLabel>Email address</FormLabel>
-        <Input id="email" type="email" ref={emailRef} />
-      </FormControl>
-
-      <FormControl>
-        <FormLabel>Password</FormLabel>
         <InputGroup>
           <Input
-            id="password"
+            id="password" placeholder="Password"
             type={show ? 'text' : 'password'}
             ref={passwordRef}
           />
@@ -66,25 +84,27 @@ export default function Signup() {
           </InputRightElement>
         </InputGroup>
       </FormControl>
-      <FormControl>
-        <FormLabel>Confirm Password</FormLabel>
-        <InputGroup>
-          <Input
-            id="confirmationpassword"
-            type={show ? 'text' : 'password'}
-            ref={confirmPasswordRef}
-          />
-          <InputRightElement width="4.5rem">
-            <Button h="1.75rem" size="sm" onClick={handleClick}>
-              {show ? 'Hide' : 'Show'}
-            </Button>
-          </InputRightElement>
-        </InputGroup>
-      </FormControl>
-
-      <Button h="1.75rem" size="sm" onClick={Event => handleSignUp(Event)}>
+      <Button h="2.75rem" size="sm" onClick={Event => handleSignUp(Event)} color="white"
+          backgroundColor="#0095f6"
+          shadow="md">
         Sign Up
       </Button>
+      </Stack>
+      <HStack
+        w="350px"
+        h="63px"
+        border="1px"
+        borderColor="gray.200"
+        justify="center"
+      >
+        <Text>
+        Have an account?
+          <Link as={RouterLink} to="/login" color="#0095f6">
+            {' '}
+            Log in
+          </Link>
+        </Text>
+      </HStack>
     </Stack>
   );
 }
