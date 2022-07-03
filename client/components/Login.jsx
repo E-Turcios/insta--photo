@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import theme from '../Theme/theme';
+
 import {
   FormControl,
   FormLabel,
@@ -7,19 +7,18 @@ import {
   FormHelperText,
   Input,
   Stack,
-  InputRightElement,
   Button,
-  InputGroup,
-  Box,
   Heading,
   Text,
   Link,
   HStack,
-  useBoolean,
 } from '@chakra-ui/react';
 
 import { useAuth } from '../context/AuthContext';
 import { Link as RouterLink } from 'react-router-dom';
+
+import InputPassword from './InputPassword'
+
 export default function Login() {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
@@ -55,19 +54,7 @@ export default function Login() {
             ref={emailRef}
           ></Input>
         </FormControl>
-        <FormControl shadow="md">
-          <InputGroup>
-            <Input
-              type={show ? 'text' : 'password'}
-              id="password"
-              placeholder="Password"
-              ref={passwordRef}
-            />
-            <InputRightElement width="4.5rem">
-              <ShowHideButton />
-            </InputRightElement>
-          </InputGroup>
-        </FormControl>
+        <InputPassword ref={passwordRef} />
         <Button
           h="2.75rem"
           size="sm"
@@ -95,27 +82,5 @@ export default function Login() {
         </Text>
       </HStack>
     </Stack>
-  );
-}
-
-function ShowHideButton() {
-  const { hasPassword, setHasPassword } = useState(true);
-  const [show, setShow] = useBoolean(false);
-  function handlePasswordInput(event) {
-    event.preventDefault();
-    setHasPassword(event.target.value.length);
-  }
-  return hasPassword ? (
-    <Button
-      h="1.75rem"
-      size="sm"
-      onClick={() => setShow.toggle()}
-      onInput={event => handlePasswordInput(event)}
-      variant="ghost"
-    >
-      {show ? 'Hide' : 'Show'}
-    </Button>
-  ) : (
-    <></>
   );
 }
