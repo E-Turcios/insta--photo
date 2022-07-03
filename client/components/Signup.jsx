@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-
 import {
   FormControl,
   FormLabel,
@@ -17,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import InputPassword from './InputPassword'
 export default function Signup() {
   const [show, setShow] = useState(false);
   const emailRef = useRef();
@@ -70,20 +70,9 @@ export default function Signup() {
         <Input id="username" type="text" placeholder="Username" />
       </FormControl>
 
-      <FormControl>
-        <InputGroup>
-          <Input
-            id="password" placeholder="Password"
-            type={show ? 'text' : 'password'}
-            ref={passwordRef}
-          />
-          <InputRightElement width="4.5rem">
-            <Button h="1.75rem" size="sm" onClick={handleClick}>
-              {show ? 'Hide' : 'Show'}
-            </Button>
-          </InputRightElement>
-        </InputGroup>
-      </FormControl>
+      <InputPassword ref={passwordRef}/>
+      <InputPassword ref={confirmPasswordRef} placeholder="Confirm Password"/>
+
       <Button h="2.75rem" size="sm" onClick={Event => handleSignUp(Event)} color="white"
           backgroundColor="#0095f6"
           shadow="md">
