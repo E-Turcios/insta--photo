@@ -14,9 +14,8 @@ import {
   MenuItem,
   MenuDivider,
   useDisclosure,
-  useColorModeValue,
   Stack,
-  Divider,
+  Heading,
 } from '@chakra-ui/react';
 
 import {
@@ -56,7 +55,9 @@ export default function Navbar() {
           onClick={isOpen ? onClose : onOpen}
         />
         <Box mt="1%">
-          <b>InstaPhoto</b>
+          <Heading as="h4" size="sm" p="10px">
+            Insta Photo
+          </Heading>
         </Box>
         <HStack
           as={'nav'}
