@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-
+import theme from '../Theme/theme'
 import {
   FormControl,
   FormLabel,
@@ -44,7 +44,7 @@ export default function Login() {
         spacing="24px"
         p="20px"
       >
-        <Heading as="h4" size="lg" align="center" p="10px">
+        <Heading as="h4" size="lg" align="center" p="10px" >
           Insta Photo
         </Heading>
         <FormControl shadow="md">
