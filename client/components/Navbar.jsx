@@ -16,6 +16,7 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  Divider,
 } from '@chakra-ui/react';
 
 import {
@@ -36,143 +37,253 @@ export default function Navbar() {
 
   return (
     <>
-      <Box bg="#EAEFF2" px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <IconButton
-            size={'md'}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label={'Open Menu'}
-            display={{ md: 'none' }}
-            onClick={isOpen ? onClose : onOpen}
-          />
-          <HStack spacing={8} align={'left'} justify="right">
-            <Box mt="1%">
-              <b>InstaPhoto</b>
-            </Box>
-            <HStack
-              as={'nav'}
-              spacing={6}
-              justifySelf="right"
-              alignItems={'right'}
-              align={'right'}
-              display={{ base: 'none', md: 'flex' }}
+      <Flex
+        bg="#EAEFF2"
+        px={8}
+        h={16}
+        alignItems={'center'}
+        justifyContent={'space-between'}
+        position="sticky"
+        alignSelf="flex-start"
+        top="0"
+        border="0.5px"
+      >
+        <IconButton
+          size={'md'}
+          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+          aria-label={'Open Menu'}
+          display={{ md: 'none' }}
+          onClick={isOpen ? onClose : onOpen}
+        />
+        <Box mt="1%">
+          <b>InstaPhoto</b>
+        </Box>
+        <HStack
+          as={'nav'}
+          spacing={6}
+          justifySelf="right"
+          alignItems={'right'}
+          align={'right'}
+          display={{ base: 'none', md: 'flex' }}
+        >
+          <Link as={RouterLink} to="/Search" justify="right">
+            <IconButton
+              variant="ghost"
+              aria-label="Search"
+              icon={<SearchIcon />}
+            />
+          </Link>
+          <Link as={RouterLink} to="/Home">
+            <IconButton
+              variant="ghost"
+              aria-label="Home"
+              icon={<ArrowLeftIcon />}
+            />
+          </Link>
+          <Link as={RouterLink} to="/NewPost">
+            <IconButton variant="ghost" aria-label="Post" icon={<AddIcon />} />
+          </Link>
+          <Link as={RouterLink} to="/Explore">
+            <IconButton
+              variant="ghost"
+              aria-label="Explore"
+              icon={<StarIcon />}
+            />
+          </Link>
+          <Link as={RouterLink} to="/Chat">
+            <IconButton variant="ghost" aria-label="Chat" icon={<ChatIcon />} />
+          </Link>
+          <Link as={RouterLink} to="/Notifications">
+            <IconButton
+              variant="ghost"
+              aria-label="Notifications"
+              icon={<BellIcon />}
+            />
+          </Link>
+        </HStack>
+        <Flex alignItems={'right'}>
+          <Menu>
+            <MenuButton
+              as={Button}
+              rounded={'full'}
+              variant={'link'}
+              cursor={'pointer'}
+              minW={0}
             >
-              <Link as={RouterLink} to="/Search" justify="right">
-                <IconButton
-                  variant="ghost"
-                  aria-label="Search"
-                  icon={<SearchIcon />}
-                />
-              </Link>
-              <Link as={RouterLink} to="/Home">
-                <IconButton
-                  variant="ghost"
-                  aria-label="Home"
-                  icon={<ArrowLeftIcon />}
-                />
-              </Link>
-              <Link as={RouterLink} to="/NewPost">
-                <IconButton
-                  variant="ghost"
-                  aria-label="Post"
-                  icon={<AddIcon />}
-                />
-              </Link>
-              <Link as={RouterLink} to="/Explore">
-                <IconButton
-                  variant="ghost"
-                  aria-label="Explore"
-                  icon={<StarIcon />}
-                />
-              </Link>
-              <Link as={RouterLink} to="/Chat">
-                <IconButton
-                  variant="ghost"
-                  aria-label="Chat"
-                  icon={<ChatIcon />}
-                />
-              </Link>
-              <Link as={RouterLink} to="/Notifications">
-                <IconButton
-                  variant="ghost"
-                  aria-label="Notifications"
-                  icon={<BellIcon />}
-                />
-              </Link>
-            </HStack>
-          </HStack>
-          <Flex alignItems={'right'}>
-            <Menu>
-              <MenuButton
-                as={Button}
-                rounded={'full'}
-                variant={'link'}
-                cursor={'pointer'}
-                minW={0}
-              >
-                <Avatar size={'sm'} src={Avatar} />
-              </MenuButton>
-              <MenuList>
-                <MenuItem>Profile</MenuItem>
-                <MenuItem>Saved</MenuItem>
-                <MenuItem>Settings</MenuItem>
-                <MenuItem>Switch Accounts</MenuItem>
-                <MenuDivider />
-                <MenuItem>Log Out</MenuItem>
-              </MenuList>
-            </Menu>
-          </Flex>
+              <Avatar size={'sm'} src={Avatar} />
+            </MenuButton>
+            <MenuList>
+              <MenuItem>Profile</MenuItem>
+              <MenuItem>Saved</MenuItem>
+              <MenuItem>Settings</MenuItem>
+              <MenuItem>Switch Accounts</MenuItem>
+              <MenuDivider />
+              <MenuItem>Log Out</MenuItem>
+            </MenuList>
+          </Menu>
         </Flex>
+      </Flex>
 
-        {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
-            <Stack as={'nav'} spacing={4} align="center">
-              <Link as={RouterLink} to="/Search">
-                <IconButton
-                  variant="ghost"
-                  aria-label="Search"
-                  icon={<SearchIcon />}
-                />
-              </Link>
-              <Link as={RouterLink} to="/Home">
-                <IconButton
-                  variant="ghost"
-                  aria-label="Home"
-                  icon={<ArrowLeftIcon />}
-                />
-              </Link>
-              <Link as={RouterLink} to="/NewPost">
-                <IconButton
-                  variant="ghost"
-                  aria-label="Post"
-                  icon={<AddIcon />}
-                />
-              </Link>
-              <Link as={RouterLink} to="/Explore">
-                <IconButton
-                  variant="ghost"
-                  aria-label="Explore"
-                  icon={<StarIcon />}
-                />
-              </Link>
-              <Link as={RouterLink} to="/Chat">
-                <IconButton
-                  variant="ghost"
-                  aria-label="Chat"
-                  icon={<ChatIcon />}
-                />
-              </Link>
-              <Link as={RouterLink} to="/Notifications">
-                <IconButton
-                  variant="ghost"
-                  aria-label="Notifications"
-                  icon={<BellIcon />}
-                />
-              </Link>
-            </Stack>
-          </Box>
-        ) : null}
+      {isOpen ? (
+        <Box pb={4} display={{ md: 'none' }}>
+          <Stack as={'nav'} spacing={4} align="center">
+            <Link as={RouterLink} to="/Search">
+              <IconButton
+                variant="ghost"
+                aria-label="Search"
+                icon={<SearchIcon />}
+              />
+            </Link>
+            <Link as={RouterLink} to="/Home">
+              <IconButton
+                variant="ghost"
+                aria-label="Home"
+                icon={<ArrowLeftIcon />}
+              />
+            </Link>
+            <Link as={RouterLink} to="/NewPost">
+              <IconButton
+                variant="ghost"
+                aria-label="Post"
+                icon={<AddIcon />}
+              />
+            </Link>
+            <Link as={RouterLink} to="/Explore">
+              <IconButton
+                variant="ghost"
+                aria-label="Explore"
+                icon={<StarIcon />}
+              />
+            </Link>
+            <Link as={RouterLink} to="/Chat">
+              <IconButton
+                variant="ghost"
+                aria-label="Chat"
+                icon={<ChatIcon />}
+              />
+            </Link>
+            <Link as={RouterLink} to="/Notifications">
+              <IconButton
+                variant="ghost"
+                aria-label="Notifications"
+                icon={<BellIcon />}
+              />
+            </Link>
+          </Stack>
+        </Box>
+      ) : null}
+
+      <Box>
+        Main Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content HereMain Content HereMain
+        Content HereMain Content HereMain Content Here
       </Box>
+      {/* </Box> */}
     </>
   );
 }
