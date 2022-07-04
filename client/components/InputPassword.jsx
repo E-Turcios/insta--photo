@@ -8,7 +8,7 @@ import {
   useBoolean,
 } from '@chakra-ui/react';
 
-const InputPassword = React.forwardRef(({placeholder}, passwordRef) => {
+const InputPassword = React.forwardRef(({ placeholder }, passwordRef) => {
   const [hasInput, setHasInput] = useState(false);
   const [show, setShow] = useBoolean(false);
   function handlePasswordInput(event) {
@@ -26,7 +26,12 @@ const InputPassword = React.forwardRef(({placeholder}, passwordRef) => {
         />
         {hasInput ? (
           <InputRightElement width="4.5rem">
-            <Button h="1.75rem" size="sm" onClick={() => setShow.toggle()}>
+            <Button
+              variant="ghost"
+              h="1.75rem"
+              size="sm"
+              onClick={() => setShow.toggle()}
+            >
               {show ? 'Hide' : 'Show'}
             </Button>
           </InputRightElement>
