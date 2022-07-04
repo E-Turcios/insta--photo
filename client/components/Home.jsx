@@ -13,7 +13,7 @@ const post = {
 };
 export default function Home() {
   return (
-    <Stack align="center">
+    <Stack align="center" p="30px">
       <SinglePost
         avatar={post.avatar}
         username={post.username}
