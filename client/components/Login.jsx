@@ -1,10 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 
 import {
   FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Input,
   Stack,
   Button,
@@ -12,9 +9,9 @@ import {
   Text,
   Link,
   HStack,
+  useToast
 } from '@chakra-ui/react';
 import Division from './Division';
-
 import { useAuth } from '../context/AuthContext';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -22,15 +19,16 @@ import InputPassword from './InputPassword';
 
 export default function Login() {
   const [show, setShow] = useState(false);
-  const handleClick = () => setShow(!show);
   const emailRef = useRef();
   const passwordRef = useRef();
   const { login, currentUser } = useAuth();
+  const errorToast = useToast();
+  const handleClick = () => setShow(!show);
 
   const handleLogin = async event => {
     event.preventDefault();
     try {
-      await login(emailRef, passwordRef);
+      await login(emailRef.current.value, passwordRef.current.value);
     } catch (error) {
       showError(error.message.replace('Firebase: ', ''));
     }

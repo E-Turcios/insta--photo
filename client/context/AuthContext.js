@@ -33,7 +33,7 @@ export function AuthProvider({ children }) {
     return signInWithEmailAndPassword(auth, email, password);
   }
   function logout() {
-    return signOut();
+    return signOut(auth);
   }
 
   const value = { currentUser, signUp, login, logout };

@@ -30,9 +30,11 @@ import {
 } from '@chakra-ui/icons';
 
 import { Link as RouterLink } from 'react-router-dom';
+import {useAuth} from '../context/AuthContext'
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const {logout} = useAuth()
 
   return (
     <>
@@ -119,7 +121,7 @@ export default function Navbar() {
               <MenuItem>Settings</MenuItem>
               <MenuItem>Switch Accounts</MenuItem>
               <MenuDivider />
-              <MenuItem>Log Out</MenuItem>
+              <MenuItem onClick={logout}>Log Out</MenuItem>
             </MenuList>
           </Menu>
         </Flex>
