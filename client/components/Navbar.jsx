@@ -30,11 +30,11 @@ import {
 } from '@chakra-ui/icons';
 
 import { Link as RouterLink } from 'react-router-dom';
-import {useAuth} from '../context/AuthContext'
+import { useAuth } from '../context/AuthContext';
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const {logout} = useAuth()
+  const { logout } = useAuth();
 
   return (
     <>
@@ -116,11 +116,11 @@ export default function Navbar() {
               <Avatar size={'sm'} src={Avatar} />
             </MenuButton>
             <MenuList>
-              <MenuItem>Profile</MenuItem>
-              <MenuItem>Saved</MenuItem>
-              <MenuItem>Settings</MenuItem>
-              <MenuItem>Switch Accounts</MenuItem>
-              <MenuDivider />
+              <MenuLink name="Profile" link="/profile"/>
+              <MenuLink name="Saved" link="/saved"/>
+              <MenuLink name="Settings" link="/settings"/>
+              <MenuLink name="Switch Accounts" link="/switch"/>
+              <MenuDivider/>
               <MenuItem onClick={logout}>Log Out</MenuItem>
             </MenuList>
           </Menu>
@@ -176,5 +176,13 @@ export default function Navbar() {
         </Box>
       ) : null}
     </>
+  );
+}
+
+function MenuLink(props) {
+  return (
+    <Link as={RouterLink} to={props.link}>
+      <MenuItem>{props.name}</MenuItem>
+    </Link>
   );
 }

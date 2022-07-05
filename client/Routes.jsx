@@ -27,7 +27,7 @@ function DashboardRoutes() {
       <Navbar />
       <Switch>
         <Route path="/" element={<Home />} />
-        <Route path="/" element={<Profile />} />
+        <Route path="profile" element={<Profile />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Switch>
     </React.Fragment>
