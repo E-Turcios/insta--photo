@@ -31,7 +31,7 @@ import {
 
 import { Link as RouterLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-
+import CreateNewPostModal from './CreateNewPostModal'
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { logout } = useAuth();
@@ -83,9 +83,7 @@ export default function Navbar() {
               icon={<ArrowLeftIcon />}
             />
           </Link>
-          <Link as={RouterLink} to="/NewPost">
-            <IconButton variant="ghost" aria-label="Post" icon={<AddIcon />} />
-          </Link>
+          <CreateNewPostModal />
           <Link as={RouterLink} to="/Explore">
             <IconButton
               variant="ghost"
