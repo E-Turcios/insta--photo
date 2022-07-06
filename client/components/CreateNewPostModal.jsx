@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import {
   Modal,
@@ -14,14 +14,18 @@ import {
   Stack,
   VStack,
   Image,
-  Heading,
+  Text,
+  Input,
 } from '@chakra-ui/react';
 
 import { AddIcon } from '@chakra-ui/icons';
 
 export default function CreateNewPostModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const handleUpload = () => {};
+  const inputFile = useRef();
+  const handleUpload = () => {
+    inputFile.current.click();
+  };
   return (
     <>
       <IconButton
@@ -48,21 +52,25 @@ export default function CreateNewPostModal() {
           <Stack
             minWidth="348px"
             minHeight="391px"
+            height="500px"
+            p="10px"
             justify="center"
             align="center"
           >
             <VStack>
-              <Image
-                src="https://www.kindpng.com/picc/m/209-2099181_multimedia-video-audio-videos-movie-youtube-audio-y.png"
-                w="200px"
-                h="200px"
-              />
+              <Image src="./multi_media.png" w="350px" h="300px" />
               <ModalBody>
-                <Heading as="h2">Drag photos and videos here</Heading>
+                <Text fontWeight="bold">Drag photos and videos here</Text>
               </ModalBody>
               <Button colorScheme="blue" mr={3} onClick={handleUpload}>
                 Select from computer
               </Button>
+              <Input
+                type="file"
+                id="file"
+                ref={inputFile}
+                style={{ display: 'none' }}
+              />
             </VStack>
           </Stack>
         </ModalContent>
