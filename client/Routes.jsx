@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
+import Profile from './components/Profile';
 import { useAuth } from './context/AuthContext';
 
 export default function Routes() {
@@ -26,6 +27,7 @@ function DashboardRoutes() {
       <Navbar />
       <Switch>
         <Route path="/" element={<Home />} />
+        <Route path="profile" element={<Profile />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Switch>
     </React.Fragment>
