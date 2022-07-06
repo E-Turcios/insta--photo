@@ -1,10 +1,10 @@
-import { extendTheme } from '@chakra-ui/react'
-import "@fontsource/bellota"
+import { extendTheme } from '@chakra-ui/react';
+import '@fontsource/bellota';
 
 const theme = extendTheme({
-    fonts: {
-        heading: 'Bellota'
-    },
-})
+  fonts: {
+    titleHeading: { Heading: 'Bellota' },
+  },
+});
 
-export default theme
+export default theme;

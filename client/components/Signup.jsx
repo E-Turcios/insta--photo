@@ -46,13 +46,12 @@ export default function Signup() {
     <Stack w="100%" h="100vh" alignItems="center" justify="center">
       <Stack
         w="350px"
-
         border="1px"
         borderColor="gray.200"
         spacing="24px"
         p="20px"
       >
-        <Heading as="h4" size="lg" align="center">
+        <Heading as="h4" fontFamily={'Bellota'} size="lg" align="center">
           Insta Photo
         </Heading>
         <Text color="gray" align="center" fontSize="md">

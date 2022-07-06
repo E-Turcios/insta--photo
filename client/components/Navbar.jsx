@@ -31,7 +31,7 @@ import {
 
 import { Link as RouterLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import CreateNewPostModal from './CreateNewPostModal'
+import CreateNewPostModal from './CreateNewPostModal';
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { logout } = useAuth();
@@ -57,7 +57,7 @@ export default function Navbar() {
           onClick={isOpen ? onClose : onOpen}
         />
         <Box mt="1%">
-          <Heading as="h4" size="sm" p="10px">
+          <Heading fontFamily={'Bellota'} as="h4" size="sm" p="10px">
             Insta Photo
           </Heading>
         </Box>
@@ -114,11 +114,11 @@ export default function Navbar() {
               <Avatar size={'sm'} src={Avatar} />
             </MenuButton>
             <MenuList>
-              <MenuLink name="Profile" link="/profile"/>
-              <MenuLink name="Saved" link="/saved"/>
-              <MenuLink name="Settings" link="/settings"/>
-              <MenuLink name="Switch Accounts" link="/switch"/>
-              <MenuDivider/>
+              <MenuLink name="Profile" link="/profile" />
+              <MenuLink name="Saved" link="/saved" />
+              <MenuLink name="Settings" link="/settings" />
+              <MenuLink name="Switch Accounts" link="/switch" />
+              <MenuDivider />
               <MenuItem onClick={logout}>Log Out</MenuItem>
             </MenuList>
           </Menu>

@@ -9,7 +9,7 @@ import {
   Text,
   Link,
   HStack,
-  useToast
+  useToast,
 } from '@chakra-ui/react';
 import Division from './Division';
 import { useAuth } from '../context/AuthContext';
@@ -47,7 +47,13 @@ export default function Login() {
         spacing="24px"
         p="20px"
       >
-        <Heading as="h4" size="lg" align="center" p="10px">
+        <Heading
+          as="h4"
+          fontFamily={'Bellota'}
+          size="lg"
+          align="center"
+          p="10px"
+        >
           Insta Photo
         </Heading>
         <FormControl shadow="md">
