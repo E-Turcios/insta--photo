@@ -22,7 +22,6 @@ import { AddIcon } from '@chakra-ui/icons';
 
 export default function CreateNewPostModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  useEffect(() => onOpen(), []);
   const inputFile = useRef();
   const handleUpload = () => {
     inputFile.current.click();
