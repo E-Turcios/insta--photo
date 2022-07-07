@@ -12,6 +12,7 @@ import {
   Button,
   Flex,
   IconButton,
+  useDisclosure,
 } from '@chakra-ui/react';
 
 import { Link as RouterLink } from 'react-router-dom';
@@ -40,7 +41,7 @@ export default function Profile() {
       <Flex justify="left" w="613.34px" h="150px">
         <VStack>
           <Flex>
-            <Text align="start" fontSize="3xl">
+            <Text fontSize="3xl">
               {' '}
               {accprops.username}
             </Text>
@@ -66,38 +67,40 @@ export default function Profile() {
               <IconButton variant="none" aria-label="" icon={<MdSettings />} />
             </Link>
           </Flex>
-          {/* <Flex>
-            <Text align="start" >
-              {' '}
-              <Text fontWeight="bold"> {accprops.numposts} </Text> 
-            </Text>
-
-            <Text>
-            {' '}
+          <Flex w="100%" justify="space-between">
+            <Text fontSize="lg">
+              <Text as="span" fontWeight="bold">
+                {' '}
+                {accprops.numposts}{' '}
+              </Text>
               posts
             </Text>
-            <IconButton
-              variant="ghost"
-              aria-label=""
-              icon={<MdVerified />}
-              color="#0095f6"
-            />
-            <Button
-              ml="5"
-              mr="5"
-              variant="ghost"
-              border="1px"
-              borderColor="#CBD5E0"
-            >
-              {' '}
-              Edit Profile
-            </Button>
-            <Link as={RouterLink} to="/Settings">
-              <IconButton variant="none" aria-label="" icon={<MdSettings />} />
-            </Link>
-          </Flex> */}
+            <TextModel text="followers" value={accprops.followers} />
+            <TextModel text="following" value={accprops.following} />
+          </Flex>
+
+          <Flex w='100%'>
+            <Text fontWeight="bold" fontSize="lg">
+              {accprops.accountname}
+            </Text>
+          </Flex>
         </VStack>
       </Flex>
     </Flex>
+  );
+}
+
+function TextModel(props) {
+  const { isOpen, onOpen, isClosed } = useDisclosure();
+  return (
+    <React.Fragment>
+      <Text fontSize="lg" onClick={onOpen}>
+        <Text as="span" fontWeight="bold">
+          {' '}
+          {props.value}{' '}
+        </Text>
+        {props.text}
+      </Text>
+    </React.Fragment>
   );
 }
