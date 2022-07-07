@@ -22,6 +22,7 @@ import { AddIcon } from '@chakra-ui/icons';
 
 export default function CreateNewPostModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  useEffect(() => onOpen(), []);
   const inputFile = useRef();
   const handleUpload = () => {
     inputFile.current.click();
@@ -69,8 +70,8 @@ export default function CreateNewPostModal() {
                 type="file"
                 id="file"
                 ref={inputFile}
-                style={{ display: 'none' }}
                 accept="image/*"
+                display="none"
               />
             </VStack>
           </Stack>
