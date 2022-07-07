@@ -69,8 +69,8 @@ export default function CreateNewPostModal() {
                 type="file"
                 id="file"
                 ref={inputFile}
-                style={{ display: 'none' }}
                 accept="image/*"
+                display="none"
               />
             </VStack>
           </Stack>
