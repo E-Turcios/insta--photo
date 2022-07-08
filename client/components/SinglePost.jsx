@@ -68,7 +68,7 @@ function Comments({ comments }) {
     <></>
   );
 }
-
+//TODO add comment to show up in array then push to backend
 function AddComment() {
   return (
     <InputGroup>
