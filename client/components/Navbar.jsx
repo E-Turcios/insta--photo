@@ -35,6 +35,10 @@ import CreateNewPostModal from './NewPostModal';
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { logout } = useAuth();
+  const props = { 
+    avatar:'https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/04/One-Piece-Luffy.jpg?q=50&fit=contain&w=750&h=375&dpr=1.5',
+
+  }
 
   return (
     <>
@@ -57,9 +61,11 @@ export default function Navbar() {
           onClick={isOpen ? onClose : onOpen}
         />
         <Box mt="1%">
+        <Link as={RouterLink} to="/Home">
           <Heading fontFamily={'Bellota'} as="h4" size="sm" p="10px">
             Insta Photo
           </Heading>
+        </Link>
         </Box>
         <HStack
           as={'nav'}
@@ -111,7 +117,7 @@ export default function Navbar() {
               cursor={'pointer'}
               minW={0}
             >
-              <Avatar size={'sm'} src={Avatar} />
+              <Avatar size={'sm'} src={props.avatar} />
             </MenuButton>
             <MenuList>
               <MenuLink name="Profile" link="/profile" />
