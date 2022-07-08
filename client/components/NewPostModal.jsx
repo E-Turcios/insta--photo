@@ -20,7 +20,7 @@ import {
 
 import { AddIcon } from '@chakra-ui/icons';
 
-export default function CreateNewPostModal() {
+export default function NewPostModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const inputFile = useRef();
   const handleUpload = () => {
