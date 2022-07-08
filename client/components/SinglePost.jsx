@@ -5,9 +5,14 @@ import {
   HStack,
   VStack,
   Text,
-  Heading,
   Image,
   Link,
+  Divider,
+  Input,
+  InputGroup,
+  InputRightElement,
+  InputLeftElement,
+  Button,
 } from '@chakra-ui/react';
 export default function SinglePost(props) {
   const {
@@ -20,11 +25,17 @@ export default function SinglePost(props) {
     timestamp,
   } = props;
   return (
-    <Stack maxW="500" shadow="2xl" border='1px' borderColor='gray.200' borderRadius='10px'>
+    <Stack
+      maxW="500"
+      shadow="2xl"
+      border="1px"
+      borderColor="gray.200"
+      borderRadius="10px"
+    >
       <HStack>
         <Avatar name={username} src={avatar} margin=".5rem" />
         <Link color="teal.500" href="#">
-          boundy99
+          {username}
         </Link>
       </HStack>
       <Image src={imageUrl} maxH="600px" />
@@ -33,17 +44,45 @@ export default function SinglePost(props) {
         <Text>{likes} likes</Text>
         <Text>
           <Link color="teal.500" href="#">
-            boundy99
+            {username}
           </Link>{' '}
           {description}
         </Text>
-        <Link fontSize="16px" color="grey">
-          View all 5 comments
-        </Link>
+        <Comments comments={comments} />
         <Text fontSize="15px" color="grey">
           {timestamp}
         </Text>
       </VStack>
+      <Divider />
+      <AddComment />
     </Stack>
+  );
+}
+
+function Comments({ comments }) {
+  return comments.length ? (
+    <Link fontSize="16px" color="grey">
+      View all {comments.length} comments
+    </Link>
+  ) : (
+    <></>
+  );
+}
+
+function AddComment() {
+  return (
+    <InputGroup>
+      <Input type="text" placeholder="Add a comment..." />
+      <InputRightElement>
+        <Button
+          type="submit"
+          colorScheme="cyan"
+          variant="ghost"
+          focusBorderColor="red"
+        >
+          post
+        </Button>
+      </InputRightElement>
+    </InputGroup>
   );
 }
