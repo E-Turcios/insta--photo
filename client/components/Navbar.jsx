@@ -35,10 +35,10 @@ import CreateNewPostModal from './NewPostModal';
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { logout } = useAuth();
-  const props = { 
-    avatar:'https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/04/One-Piece-Luffy.jpg?q=50&fit=contain&w=750&h=375&dpr=1.5',
-
-  }
+  const props = {
+    avatar:
+      'https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/04/One-Piece-Luffy.jpg?q=50&fit=contain&w=750&h=375&dpr=1.5',
+  };
 
   return (
     <>
@@ -61,11 +61,11 @@ export default function Navbar() {
           onClick={isOpen ? onClose : onOpen}
         />
         <Box mt="1%">
-        <Link as={RouterLink} to="/Home">
-          <Heading fontFamily={'Bellota'} as="h4" size="sm" p="10px">
-            Insta Photo
-          </Heading>
-        </Link>
+          <Link as={RouterLink} to="/Home">
+            <Heading fontFamily={'Bellota'} as="h4" size="sm" p="10px">
+              Insta Photo
+            </Heading>
+          </Link>
         </Box>
         <HStack
           as={'nav'}
@@ -190,3 +190,5 @@ function MenuLink(props) {
     </Link>
   );
 }
+
+//Checking github v2
