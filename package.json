@@ -6,7 +6,8 @@
   "scripts": {
     "serve": "PORT=8080 MODE=development webpack serve --mode development --env development",
     "build": "webpack --mode production",
-    "env-init": "touch .env.development.local .env.production.local"
+    "env-init": "touch .env.development.local .env.production.local",
+    "start:server": "nodemon server/app.js"
   },
   "keywords": [],
   "author": "",
@@ -19,8 +20,11 @@
     "@fontsource/bellota": "^4.5.8",
     "@fontsource/open-sans": "^4.5.10",
     "@fontsource/raleway": "^4.5.9",
+    "express": "^4.18.1",
     "firebase": "^9.8.4",
     "framer-motion": "^6.3.11",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
