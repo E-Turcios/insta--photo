@@ -37,7 +37,7 @@ export default function Navbar() {
   const { logout } = useAuth();
   const props = {
     avatar:
-      'https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/04/One-Piece-Luffy.jpg?q=50&fit=contain&w=750&h=375&dpr=1.5',
+      'https://wallpaperaccess.com/full/532118.jpg',
   };
 
   return (

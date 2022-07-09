@@ -20,7 +20,7 @@ import { MdSettings, MdVerified } from 'react-icons/md';
 
 const accprops = {
   avatar:
-    'https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/04/One-Piece-Luffy.jpg?q=50&fit=contain&w=750&h=375&dpr=1.5',
+    'https://wallpaperaccess.com/full/532118.jpg',
   username: 'luffy',
   imageUrl:
     'https://preview.redd.it/yc40cow4tr691.png?width=640&crop=smart&auto=webp&s=f7877d1843f9ca184059a5bf8b3e7976538ca3de',
