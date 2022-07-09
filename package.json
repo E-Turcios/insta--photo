@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start:dev": "npm run watch & npm run server",
     "serve": "PORT=8080 MODE=development webpack serve --mode development --env development",
-    "build": "webpack --mode production",
+    "build": " webpack --mode production",
+    "watch": "PORT=8080 MODE=development webpack --watch --mode development",
     "env-init": "touch .env.development.local .env.production.local",
-    "start:server": "nodemon server/app.js"
+    "server": "nodemon server/app.js -e html,js,scss --ignore public --ignore client"
   },
   "keywords": [],
   "author": "",

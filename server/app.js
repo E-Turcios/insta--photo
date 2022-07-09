@@ -8,12 +8,21 @@ const port = 8080;
 app.use(morgan('dev'));
 app.use(express.json());
 
+app.get('/', (req, res) =>
+  res.sendFile(path.join(__dirname, '..', 'public/index.html'))
+);
+
 // to send static files
-// app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.get('/panda', (req, res, next) => {
   const pan = { name: 'panda', somethign: 3 };
   res.send(pan);
+});
+
+// sends index.html
+app.use('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public/index.html'));
 });
 
 // any remaining requests with an extension (.js, .css, etc.) send 404

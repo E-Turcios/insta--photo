@@ -18,3 +18,9 @@ npm-debug.log*
 
 public/bundle.js
 public/bundle.js.map
+
+*.eot
+*.otf
+*.ttf
+*.woff
+*.woff2 
