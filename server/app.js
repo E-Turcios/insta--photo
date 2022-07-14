@@ -2,15 +2,11 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 // logger middleware
 app.use(morgan('dev'));
 app.use(express.json());
-
-app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, '..', 'public/index.html'))
-);
 
 // to send static files
 app.use(express.static(path.join(__dirname, '..', 'public')));
