@@ -24,3 +24,4 @@ public/bundle.js.map
 *.ttf
 *.woff
 *.woff2 
+public/bundle.js.LICENSE.txt

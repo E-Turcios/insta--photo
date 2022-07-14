@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm run build & node server/app.js",
     "start:dev": "npm run watch & npm run server",
     "serve": "PORT=8080 MODE=development webpack serve --mode development --env development",
     "build": " webpack --mode production",
