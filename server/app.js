@@ -11,11 +11,6 @@ app.use(express.json());
 // to send static files
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-app.get('/panda', (req, res, next) => {
-  const pan = { name: 'panda', somethign: 3 };
-  res.send(pan);
-});
-
 // sends index.html
 app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public/index.html'));
