@@ -36,8 +36,7 @@ export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { logout } = useAuth();
   const props = {
-    avatar:
-      'https://wallpaperaccess.com/full/532118.jpg',
+    avatar: 'https://wallpaperaccess.com/full/532118.jpg',
   };
 
   return (
@@ -191,4 +190,4 @@ function MenuLink(props) {
   );
 }
 
-//Checking github v2
+//Github update 7/15
