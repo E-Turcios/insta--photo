@@ -24,12 +24,13 @@ export default function Routes() {
 function DashboardRoutes() {
   return (
     <React.Fragment>
-      <Navbar />
-      <Switch>
-        <Route path="/" element={<Home />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Switch>
+      <Navbar>
+        <Switch>
+          <Route path="/" element={<Home />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Switch>
+      </Navbar>
     </React.Fragment>
   );
 }

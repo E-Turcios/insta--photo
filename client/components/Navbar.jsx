@@ -32,8 +32,7 @@ import {
 import { Link as RouterLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import CreateNewPostModal from './NewPostModal';
-export default function Navbar() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+export default function Navbar({ children }) {
   const { logout } = useAuth();
   const props = {
     avatar: 'https://wallpaperaccess.com/full/532118.jpg',
@@ -52,13 +51,6 @@ export default function Navbar() {
         top="0"
         border="0.5px"
       >
-        <IconButton
-          size={'md'}
-          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-          aria-label={'Open Menu'}
-          display={{ md: 'none' }}
-          onClick={isOpen ? onClose : onOpen}
-        />
         <Box mt="1%">
           <Link as={RouterLink} to="/Home">
             <Heading fontFamily={'Bellota'} as="h4" size="sm" p="10px">
@@ -129,56 +121,58 @@ export default function Navbar() {
           </Menu>
         </Flex>
       </Flex>
-
-      {isOpen ? (
-        <Box pb={4} display={{ md: 'none' }}>
-          <Stack as={'nav'} spacing={4} align="center">
-            <Link as={RouterLink} to="/Search">
-              <IconButton
-                variant="ghost"
-                aria-label="Search"
-                icon={<SearchIcon />}
-              />
-            </Link>
-            <Link as={RouterLink} to="/Home">
-              <IconButton
-                variant="ghost"
-                aria-label="Home"
-                icon={<ArrowLeftIcon />}
-              />
-            </Link>
-            <Link as={RouterLink} to="/NewPost">
-              <IconButton
-                variant="ghost"
-                aria-label="Post"
-                icon={<AddIcon />}
-              />
-            </Link>
-            <Link as={RouterLink} to="/Explore">
-              <IconButton
-                variant="ghost"
-                aria-label="Explore"
-                icon={<StarIcon />}
-              />
-            </Link>
-            <Link as={RouterLink} to="/Chat">
-              <IconButton
-                variant="ghost"
-                aria-label="Chat"
-                icon={<ChatIcon />}
-              />
-            </Link>
-            <Link as={RouterLink} to="/Notifications">
-              <IconButton
-                variant="ghost"
-                aria-label="Notifications"
-                icon={<BellIcon />}
-              />
-            </Link>
-          </Stack>
-        </Box>
-      ) : null}
+      <MobileFooter />
+      {children}
     </>
+  );
+}
+
+function MobileFooter() {
+  return (
+    <Box
+      position="fixed"
+      w={'100%'}
+      zIndex="modal"
+      display={{ md: 'none' }}
+      bg="#EAEFF2"
+    >
+      <HStack as={'nav'} justify="space-between">
+        <Link as={RouterLink} to="/Search">
+          <IconButton
+            variant="ghost"
+            aria-label="Search"
+            icon={<SearchIcon />}
+          />
+        </Link>
+        <Link as={RouterLink} to="/Home">
+          <IconButton
+            variant="ghost"
+            aria-label="Home"
+            icon={<ArrowLeftIcon />}
+          />
+        </Link>
+        <Link as={RouterLink} to="/NewPost">
+          <IconButton variant="ghost" aria-label="Post" icon={<AddIcon />} />
+        </Link>
+        <Link as={RouterLink} to="/Explore">
+          <IconButton
+            variant="ghost"
+            aria-label="Explore"
+            icon={<StarIcon />}
+          />
+        </Link>
+        <Link as={RouterLink} to="/Chat">
+          <IconButton variant="ghost" aria-label="Chat" icon={<ChatIcon />} />
+        </Link>
+        {/* <Link as={RouterLink} to="/Notifications">
+          <IconButton
+            variant="ghost"
+            aria-label="Notifications"
+            icon={<BellIcon />}
+          />
+        </Link> */}
+      </HStack>
+    </Box>
   );
 }
 

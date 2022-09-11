@@ -23,6 +23,33 @@ export default function Home() {
         comments={post.comments}
         timestamp={post.timestamp}
       />
+      <SinglePost
+        avatar={post.avatar}
+        username={post.username}
+        imageUrl={post.imageUrl}
+        description={post.description}
+        likes={post.likes}
+        comments={post.comments}
+        timestamp={post.timestamp}
+      />
+      <SinglePost
+        avatar={post.avatar}
+        username={post.username}
+        imageUrl={post.imageUrl}
+        description={post.description}
+        likes={post.likes}
+        comments={post.comments}
+        timestamp={post.timestamp}
+      />
+      <SinglePost
+        avatar={post.avatar}
+        username={post.username}
+        imageUrl={post.imageUrl}
+        description={post.description}
+        likes={post.likes}
+        comments={post.comments}
+        timestamp={post.timestamp}
+      />
     </Stack>
   );
 }
