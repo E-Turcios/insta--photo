@@ -8,6 +8,8 @@ const port = process.env.PORT || 8080;
 app.use(morgan('dev'));
 app.use(express.json());
 
+app.use('/api', require('./api'));
+
 // to send static files
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
@@ -35,5 +37,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Example app listening on port http://localhost:${port}`);
 });
