@@ -31,7 +31,7 @@ import {
 
 import { Link as RouterLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import CreateNewPostModal from './NewPostModal';
+import CreateNewPostModal from './NewPost';
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { logout } = useAuth();
