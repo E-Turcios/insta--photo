@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+import MediaQuery from 'react-responsive';
 
 import {
   Box,
@@ -19,8 +20,6 @@ import {
 } from '@chakra-ui/react';
 
 import {
-  HamburgerIcon,
-  CloseIcon,
   AddIcon,
   BellIcon,
   ChatIcon,
@@ -41,7 +40,7 @@ export default function Navbar({ children }) {
   return (
     <>
       <Flex
-        bg="#EAEFF2"
+        bg="#FFFFFF"
         px={8}
         h={16}
         alignItems={'center'}
@@ -121,9 +120,63 @@ export default function Navbar({ children }) {
           </Menu>
         </Flex>
       </Flex>
-      <MobileFooter />
+      <MediaQuery minWidth={1224}>
+        <ComputerHeader />
+      </MediaQuery>
+      <MediaQuery maxWidth={1224}>
+        <MobileFooter />
+      </MediaQuery>
       {children}
     </>
+  );
+}
+
+function ComputerHeader() {
+  return (
+    <Box
+      position="fixed"
+      w={'100%'}
+      zIndex="modal"
+      display={{ md: 'none' }}
+      bg="#FFFFFF"
+    >
+      <HStack as={'nav'} justify="space-between">
+        <Link as={RouterLink} to="/Search">
+          <IconButton
+            variant="ghost"
+            aria-label="Search"
+            icon={<SearchIcon />}
+          />
+        </Link>
+        <Link as={RouterLink} to="/Home">
+          <IconButton
+            variant="ghost"
+            aria-label="Home"
+            icon={<ArrowLeftIcon />}
+          />
+        </Link>
+        <Link as={RouterLink} to="/NewPost">
+          <IconButton variant="ghost" aria-label="Post" icon={<AddIcon />} />
+        </Link>
+        <Link as={RouterLink} to="/Explore">
+          <IconButton
+            variant="ghost"
+            aria-label="Explore"
+            icon={<StarIcon />}
+          />
+        </Link>
+        <Link as={RouterLink} to="/Chat">
+          <IconButton variant="ghost" aria-label="Chat" icon={<ChatIcon />} />
+        </Link>
+        {/* <Link as={RouterLink} to="/Notifications">
+          <IconButton
+            variant="ghost"
+            aria-label="Notifications"
+            icon={<BellIcon />}
+          />
+        </Link> */}
+      </HStack>
+    </Box>
   );
 }
 
@@ -132,9 +185,10 @@ function MobileFooter() {
     <Box
       position="fixed"
       w={'100%'}
+      bottom="0"
       zIndex="modal"
       display={{ md: 'none' }}
-      bg="#EAEFF2"
+      bg="#FFFFFF"
     >
       <HStack as={'nav'} justify="space-between">
         <Link as={RouterLink} to="/Search">
